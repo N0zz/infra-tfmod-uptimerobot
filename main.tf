@@ -19,6 +19,16 @@ resource "uptimerobot_monitor" "https_monitors" {
     friendly_name = format("HTTPS %s TF", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
     type          = "http"
     interval      = "300"
+
+    dynamic "alert_contact" {
+        for_each = tolist([var.uptimerobot_alert_email])
+        content {
+            id = uptimerobot_alert_contact.email.id
+            threshold = 0
+            recurrence = 0
+        }
+    }
+
 }
 
 resource "uptimerobot_monitor" "custom_monitors" {
