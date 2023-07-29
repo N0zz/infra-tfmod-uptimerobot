@@ -40,4 +40,14 @@ resource "uptimerobot_monitor" "custom_monitors" {
     sub_type      = each.value.sub_type
     interval      = try(each.value.interval, null)
     port          = each.value.sub_type == "custom" ? try(each.value.port, null) : null
+
+    dynamic "alert_contact" {
+        for_each = var.uptimerobot_alert_email != "disabled" ? toset([1]) : toset([])
+        content {
+            id = uptimerobot_alert_contact.email.0.id
+            threshold = 0
+            recurrence = 0
+        }
+    }
+
 }
