@@ -1,16 +1,13 @@
-variable "uptimerobot_api_key" {
-    description = "Defined in Terraform Cloud variables set."
-    type = string
-}
-
 variable "dns_records" {
-    description = "Define dns records set in OVH DNS zones."
+    description = "Creates default monitors and alerts for DNS records created in OVH."
     type = map
 }
 
 variable "custom_monitors" {
+    description = "User defined custom monitors."
     type = map
 }
 variable "uptimerobot_alert_email" {
+    description = "Email alert to be attached to created monitors."
     type = string
 }
