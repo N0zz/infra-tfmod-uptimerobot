@@ -1,4 +1,4 @@
-variable "environment" {
+variable "infra_environment" {
   description = "Used to condition resources which should only be created in specific env."
   type        = string
 }

@@ -26,7 +26,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_dns_records"></a> [dns\_records](#input\_dns\_records) | Creates default monitors and alerts for DNS records created in OVH. | `map(any)` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | Used to condition resources which should only be created in specific env. | `string` | n/a | yes |
+| <a name="input_infra_environment"></a> [infra\_environment](#input\_infra\_environment) | Used to condition resources which should only be created in specific env. | `string` | n/a | yes |
 | <a name="input_uptimerobot_alert_email"></a> [uptimerobot\_alert\_email](#input\_uptimerobot\_alert\_email) | Email alert to be attached to created monitors. | `string` | n/a | yes |
 | <a name="input_uptimerobot_custom_monitors"></a> [uptimerobot\_custom\_monitors](#input\_uptimerobot\_custom\_monitors) | User defined custom monitors. | `map(any)` | n/a | yes |
 
