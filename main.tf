@@ -8,7 +8,7 @@ locals {
 
 resource "uptimerobot_alert_contact" "email" {
     count = var.uptimerobot_alert_email != null ? 1 : 0
-    friendly_name = "Email Alert"
+    friendly_name = var.uptimerobot_alert_email
     type          = "e-mail"
     value         = var.uptimerobot_alert_email
 }
