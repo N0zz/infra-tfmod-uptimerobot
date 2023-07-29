@@ -23,7 +23,7 @@ resource "uptimerobot_monitor" "https_monitors" {
     dynamic "alert_contact" {
         for_each = var.uptimerobot_alert_email != "disabled" ? toset([1]) : toset([])
         content {
-            id = uptimerobot_alert_contact.email.0.id
+            id = uptimerobot_alert_contact.email[0].id
             threshold = 0
             recurrence = 0
         }
@@ -44,7 +44,7 @@ resource "uptimerobot_monitor" "custom_monitors" {
     dynamic "alert_contact" {
         for_each = var.uptimerobot_alert_email != "disabled" ? toset([1]) : toset([])
         content {
-            id = uptimerobot_alert_contact.email.0.id
+            id = uptimerobot_alert_contact.email[0].id
             threshold = 0
             recurrence = 0
         }
