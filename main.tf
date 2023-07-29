@@ -19,10 +19,13 @@ resource "uptimerobot_monitor" "https_monitors" {
     type          = "http"
     interval      = "300"
 
-    alert_contact {
-        id = uptimerobot_alert_contact.email.id
-        threshold = 0
-        recurrence = 0
+    dynamic "alert_contact" {
+        for_each = var.uptimerobot_alert_email != "disabled" ? toset([1]) : toset([])
+        content {
+            id = uptimerobot_alert_contact.email.id
+            threshold = 0
+            recurrence = 0
+        }
     }
 
 }
