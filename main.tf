@@ -7,7 +7,6 @@ locals {
 }
 
 resource "uptimerobot_alert_contact" "email" {
-    count = var.uptimerobot_alert_email != null ? 1 : 0
     friendly_name = var.uptimerobot_alert_email
     type          = "e-mail"
     value         = var.uptimerobot_alert_email
@@ -20,13 +19,10 @@ resource "uptimerobot_monitor" "https_monitors" {
     type          = "http"
     interval      = "300"
 
-    dynamic "alert_contact" {
-        for_each = toset([var.uptimerobot_alert_email])
-        content {
-            id = try(uptimerobot_alert_contact.email.0.id, "0")
-            threshold = 0
-            recurrence = 0
-        }
+    alert_contact {
+        id = uptimerobot_alert_contact.email.0.id
+        threshold = 0
+        recurrence = 0
     }
 
 }
