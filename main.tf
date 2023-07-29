@@ -51,3 +51,8 @@ resource "uptimerobot_monitor" "custom_monitors" {
     }
 
 }
+resource "uptimerobot_status_page" "status_page" {
+  friendly_name  = "Main Status Page"
+  sort_monitors  = "down-up-paused"
+  monitors       = [0]
+}
