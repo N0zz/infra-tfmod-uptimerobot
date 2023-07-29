@@ -9,7 +9,7 @@ locals {
 resource "uptimerobot_alert_contact" "email" {
     count = var.uptimerobot_alert_email != null ? 1 : 0
     friendly_name = "Email Alert"
-    type          = "email"
+    type          = "e-mail"
     value         = var.uptimerobot_alert_email
 }
 resource "uptimerobot_monitor" "https_monitors" {
