@@ -1,3 +1,6 @@
+variable "environment" {
+    description = "Used to condition resources which should only be created in specific env."
+}
 variable "dns_records" {
     description = "Creates default monitors and alerts for DNS records created in OVH."
     type = map
