@@ -24,7 +24,7 @@ resource "uptimerobot_monitor" "https_monitors" {
     for_each = var.uptimerobot_alert_email != "disabled" ? toset([1]) : toset([])
     content {
       id         = uptimerobot_alert_contact.email[0].id
-      threshold  = 0
+       threshold  = 0
       recurrence = 0
     }
   }
