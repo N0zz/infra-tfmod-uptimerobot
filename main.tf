@@ -51,3 +51,9 @@ resource "uptimerobot_monitor" "custom_monitors" {
     }
 
 }
+resource "uptimerobot_status_page" "status_page" {
+    count = var.environment == "prod" ? 1 : 0
+    friendly_name  = "Main Status Page"
+    sort           = "down-up-paused"
+    monitors       = [0]
+}
