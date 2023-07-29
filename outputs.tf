@@ -14,4 +14,3 @@ output "custom_monitors" {
 output "status_page" {
   value = uptimerobot_status_page.status_page
 }
- 
