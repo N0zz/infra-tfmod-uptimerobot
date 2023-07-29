@@ -21,7 +21,7 @@ resource "uptimerobot_monitor" "https_monitors" {
 }
 
 resource "uptimerobot_monitor" "custom_monitors" {
-    for_each = var.custom_monitors
+    for_each = var.uptimerobot_custom_monitors
 
     url           = each.value.url
     friendly_name = format("%s TF", each.value.name)

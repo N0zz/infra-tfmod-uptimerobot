@@ -3,7 +3,7 @@ variable "dns_records" {
     type = map
 }
 
-variable "custom_monitors" {
+variable "uptimerobot_custom_monitors" {
     description = "User defined custom monitors."
     type = map
 }
