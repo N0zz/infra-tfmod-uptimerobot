@@ -11,3 +11,6 @@ variable "dns_records" {
 variable "custom_monitors" {
     type = map
 }
+variable "uptimerobot_alert_email" {
+    type = string
+}
