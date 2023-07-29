@@ -21,9 +21,9 @@ resource "uptimerobot_monitor" "https_monitors" {
     interval      = "300"
 
     dynamic "alert_contact" {
-        for_each = var.uptimerobot_alert_email != null ? toset([var.uptimerobot_alert_email]) : toset([""])
+        for_each = toset([var.uptimerobot_alert_email])
         content {
-            id = uptimerobot_alert_contact.email.0.id
+            id = try(uptimerobot_alert_contact.email.0.id, null)
             threshold = 0
             recurrence = 0
         }
