@@ -20,7 +20,7 @@ resource "uptimerobot_monitor" "https_monitors" {
     interval      = "300"
 
     alert_contact {
-        id = uptimerobot_alert_contact.email.0.id
+        id = uptimerobot_alert_contact.email.id
         threshold = 0
         recurrence = 0
     }
