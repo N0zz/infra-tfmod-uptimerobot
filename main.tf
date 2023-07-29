@@ -23,7 +23,7 @@ resource "uptimerobot_monitor" "https_monitors" {
     dynamic "alert_contact" {
         for_each = tolist([var.uptimerobot_alert_email])
         content {
-            id = uptimerobot_alert_contact.email.id
+            id = uptimerobot_alert_contact.email.0.id
             threshold = 0
             recurrence = 0
         }
