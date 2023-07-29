@@ -10,4 +10,5 @@ variable "uptimerobot_custom_monitors" {
 variable "uptimerobot_alert_email" {
     description = "Email alert to be attached to created monitors."
     type = string
+    default = null
 }
