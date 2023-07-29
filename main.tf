@@ -15,7 +15,7 @@ resource "uptimerobot_alert_contact" "email" {
 resource "uptimerobot_monitor" "https_monitors" {
   for_each = { for k, v in var.dns_records : k => v if v.subdomain != "*" }
 
-  url           = format("https://%s", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
+   url           = format("https://%s", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
   friendly_name = format("HTTPS %s TF", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
   type          = "http"
   interval      = "300"
