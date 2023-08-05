@@ -1,3 +1,9 @@
+# Project Documentation
+
+For full project documentation refer to [Infra Docs](https://github.com/N0zz/infra-docs) repository.
+
+## TF Documentation
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
