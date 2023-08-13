@@ -1,0 +1,12 @@
+name: Terraform Tests
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  terraform_tests:
+    name: "Terraform Tests"
+    uses: n0zz/infra-workflows/.github/workflows/terraform.yml@main
