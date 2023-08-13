@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Terraform lint check
+if [ $(which tflint) ]; then
+    tflint --disable-rule=terraform_module_pinned_source
+fi
+
+# Terraform fmt to format files
+if [ $(which terraform) ]; then
+    fmt_files=$(terraform fmt -recursive)
+    [[ "${fmt_files}" != "" ]] && git add $(echo ${fmt_files})
+fi
+
+# Terraform docs - generate README.md
+if [ $(which terraform-docs) ]; then
+    terraform-docs markdown --output-mode inject --read-comments --show all --hide-empty --required --sensitive --type --output-file README.md .
+    git add README.md
+fi
