@@ -22,26 +22,28 @@ For full project documentation refer to [Infra Docs](https://github.com/N0zz/inf
 
 | Name | Type |
 |------|------|
-| [uptimerobot_alert_contact.email](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/resources/alert_contact) | resource |
 | [uptimerobot_monitor.custom_monitors](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/resources/monitor) | resource |
-| [uptimerobot_monitor.https_monitors](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/resources/monitor) | resource |
+| [uptimerobot_monitor.default_monitors](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/resources/monitor) | resource |
 | [uptimerobot_status_page.status_page](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/resources/status_page) | resource |
+| [uptimerobot_alert_contact.alert_contacts](https://registry.terraform.io/providers/vexxhost/uptimerobot/0.8.2/docs/data-sources/alert_contact) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_custom_alert_contacts"></a> [custom\_alert\_contacts](#input\_custom\_alert\_contacts) | n/a | `set(string)` | `[]` | no |
+| <a name="input_custom_monitors"></a> [custom\_monitors](#input\_custom\_monitors) | User defined custom monitors. | `map(any)` | n/a | yes |
+| <a name="input_default_alert_contacts"></a> [default\_alert\_contacts](#input\_default\_alert\_contacts) | n/a | `set(string)` | <pre>[<br>  "OnePlus 9"<br>]</pre> | no |
 | <a name="input_dns_records"></a> [dns\_records](#input\_dns\_records) | Creates default monitors and alerts for DNS records created in OVH. | `map(any)` | n/a | yes |
-| <a name="input_infra_environment"></a> [infra\_environment](#input\_infra\_environment) | Used to condition resources which should only be created in specific env. | `string` | n/a | yes |
-| <a name="input_uptimerobot_alert_email"></a> [uptimerobot\_alert\_email](#input\_uptimerobot\_alert\_email) | Email alert to be attached to created monitors. | `string` | n/a | yes |
-| <a name="input_uptimerobot_custom_monitors"></a> [uptimerobot\_custom\_monitors](#input\_uptimerobot\_custom\_monitors) | User defined custom monitors. | `map(any)` | n/a | yes |
+| <a name="input_enable_default_monitors"></a> [enable\_default\_monitors](#input\_enable\_default\_monitors) | n/a | `bool` | `true` | no |
+| <a name="input_enable_status_page"></a> [enable\_status\_page](#input\_enable\_status\_page) | n/a | `bool` | `false` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_alert_contact"></a> [alert\_contact](#output\_alert\_contact) | n/a |
+| <a name="output_alert_contacts"></a> [alert\_contacts](#output\_alert\_contacts) | n/a |
 | <a name="output_custom_monitors"></a> [custom\_monitors](#output\_custom\_monitors) | n/a |
-| <a name="output_https_monitors"></a> [https\_monitors](#output\_https\_monitors) | n/a |
+| <a name="output_default_monitors"></a> [default\_monitors](#output\_default\_monitors) | n/a |
 | <a name="output_status_page"></a> [status\_page](#output\_status\_page) | n/a |
 <!-- END_TF_DOCS -->

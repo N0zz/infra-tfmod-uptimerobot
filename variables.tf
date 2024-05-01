@@ -1,17 +1,29 @@
-variable "infra_environment" {
-  description = "Used to condition resources which should only be created in specific env."
-  type        = string
-}
 variable "dns_records" {
   description = "Creates default monitors and alerts for DNS records created in OVH."
   type        = map(any)
 }
 
-variable "uptimerobot_custom_monitors" {
+variable "custom_monitors" {
   description = "User defined custom monitors."
   type        = map(any)
 }
-variable "uptimerobot_alert_email" {
-  description = "Email alert to be attached to created monitors."
-  type        = string
+
+variable "enable_status_page" {
+  type    = bool
+  default = false
+}
+
+variable "enable_default_monitors" {
+  type    = bool
+  default = true
+}
+
+variable "default_alert_contacts" {
+  type    = set(string)
+  default = ["OnePlus 9"]
+}
+
+variable "custom_alert_contacts" {
+  type    = set(string)
+  default = []
 }
