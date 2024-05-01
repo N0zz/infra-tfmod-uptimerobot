@@ -12,7 +12,7 @@ data "uptimerobot_alert_contact" "alert_contacts" {
 }
 
 resource "uptimerobot_monitor" "default_monitors" {
-  for_each = { for k, v in var.dns_records : k => v if v.subdomain != "*" && v.fieldtype != "CAA" }
+  for_each = var.enable_default_monitors ? { for k, v in var.dns_records : k => v if v.subdomain != "*" && v.fieldtype != "CAA" } : {}
 
   url           = format("https://%s", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
   friendly_name = format("HTTPS %s TF", local.monitor_opts[index(keys(var.dns_records), each.key)].url)
